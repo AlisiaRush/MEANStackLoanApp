@@ -4,6 +4,10 @@ var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
 
+var mongoose = require('mongoose');
+
+mongoose.connect('mongodb://localhost:27017/LoansManager');
+
 
 // ROUTES
 var auditRouter = require('./routes/audits');
@@ -30,12 +34,12 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 // USING ROUTES
 app.use('/', indexRouter);
-app.use('/users', auditRouter);
-app.use('/users', customersRouter);
-app.use('/users', invoicesRouter);
-app.use('/users', loansRouter);
-app.use('/users', paymentsRouter);
-app.use('/users', settingsRouter);
+app.use('/audit', auditRouter);
+app.use('/customers', customersRouter);
+app.use('/invoices', invoicesRouter);
+app.use('/loans', loansRouter);
+app.use('/payments', paymentsRouter);
+app.use('/settings', settingsRouter);
 app.use('/users', usersRouter);
 
 // catch 404 and forward to error handler
