@@ -8,7 +8,6 @@
     </div>
   </div>
 </div>
-
 <main class="mt-4">
   <div class="col-lg-3">
     <form class="d-flex" role="search">
@@ -37,73 +36,26 @@
         <th scope="col">Last Name</th>
         <th scope="col">Phone Number</th>
         <th scope="col">Email Address</th>
-        <th scope="col">Address</th>
         <th scope="col">Department</th>
       </tr>
+      <tr tr *ngFor="let customer of customerList">
+        <th>
+          <input
+            class="form-check-input"
+            type="checkbox"
+            value=""
+            id="flexCheckDefault"
+          />
+        </th>
+        <td>
+          <a [routerLink]="['view', customer._id]">{{ customer._id }}</a>
+        </td>
+        <td>{{ customer.firstName }}</td>
+        <td>{{ customer.lastName }}</td>
+        <td>{{ customer.lastName }}</td>
+        <td>{{ customer.emailAddress }}</td>
+        <td>{{ customer.department }}</td>
+      </tr>
     </thead>
-    <tbody class="table-group-divider">
-      <tr>
-        <th>
-          <input
-            class="form-check-input"
-            type="checkbox"
-            value=""
-            id="flexCheckDefault"
-          />
-        </th>
-
-        <th scope="row">1</th>
-        <td>Jackie</td>
-        <td>Robinson</td>
-        <td>555-555-5555</td>
-        <td>jackie@jrobinson.com</td>
-        <td>123 Main Street</td>
-        <td>Sports</td>
-      </tr>
-      <tr>
-        <th>
-          <input
-            class="form-check-input"
-            type="checkbox"
-            value=""
-            id="flexCheckDefault"
-          />
-        </th>
-        <th scope="row">2</th>
-        <td>Paul</td>
-        <td>Walker</td>
-        <td>555-555-4444</td>
-        <td>paul@paulwalker.com</td>
-        <td>555 Sesame Street</td>
-        <td>Racing</td>
-      </tr>
-      <tr>
-        <th>
-          <input
-            class="form-check-input"
-            type="checkbox"
-            value=""
-            id="flexCheckDefault"
-          />
-        </th>
-        <th scope="row">3</th>
-        <td>Jackie</td>
-        <td>Robinson</td>
-        <td>555-555-5555</td>
-        <td>jackie@jrobinson.com</td>
-        <td>123 Main Street</td>
-        <td>Sports</td>
-      </tr>
-    </tbody>
   </table>
-
-  <nav aria-label="Page navigation example">
-    <ul class="pagination">
-      <li class="page-item"><a class="page-link" href="#">Previous</a></li>
-      <li class="page-item"><a class="page-link" href="#">1</a></li>
-      <li class="page-item"><a class="page-link" href="#">2</a></li>
-      <li class="page-item"><a class="page-link" href="#">3</a></li>
-      <li class="page-item"><a class="page-link" href="#">Next</a></li>
-    </ul>
-  </nav>
 </main>
