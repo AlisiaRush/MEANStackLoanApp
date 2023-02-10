@@ -1,0 +1,41 @@
+.icon{
+  font-size: 25px;
+  position: relative;
+  top: 5px;
+}
+
+.btn{
+  color: #fff;
+  background: #29347a;
+  margin-top: 0;
+  border: none;
+}
+
+.btn:active{
+  color: #fff;
+  background: #29347a;
+  margin-top: 0;
+  border: none;
+}
+
+.btn:focus{
+  color: #fff;
+  background: #29347a;
+  margin-top: 0;
+  border: none;
+}
+
+.navbar-content {
+  text-align:right;
+}
+
+button.menu{
+  float: left;
+  padding: 0;
+  margin: 0 10px 0 0;
+  font-size: 29px;
+}
+
+.myAccount{
+  text-align:right;
+}

@@ -1,0 +1,30 @@
+.sidebar{
+  background:#fff;
+  }
+
+.sidebar ul{
+padding:0;
+}
+
+.sidebar li{
+  list-style-type:none;
+  padding:5px 20px;
+  border-bottom:1px solid #000;
+}
+
+.log-info{
+  background:#606060;
+  color:#fff;
+  height:65px;
+  padding:10px 15px;
+}
+
+.active{
+  color: rgb(0, 194, 205);
+  font-weight:bold;
+}
+
+a{
+  text-decoration:none;
+  color:#000;
+}

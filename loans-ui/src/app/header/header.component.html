@@ -1,0 +1,31 @@
+<nav class="bg-main navbar">
+  <div class="container-fluid">
+    <div class="row col-lg-12">
+      <div class="col-lg-6">
+        <button class="btn menu">
+          <i class="bi bi-list"></i>
+        </button>
+        <h2>Loan Manager</h2>
+      </div>
+
+      <div class="myAccount col-lg-6">
+        <i class="icon bi bi-person-circle"></i>
+        <div ngbDropdown class="d-inline-block">
+          <button
+            type="button"
+            class="btn btn-outline-primary"
+            id="dropdownBasic1"
+            ngbDropdownToggle
+          >
+            Toggle dropdown
+          </button>
+          <div ngbDropdownMenu aria-labelledby="dropdownBasic1">
+            <a routerLink="./settings" ngbDropdownItem>Settings</a>
+            <a routerLink="./activity" ngbDropdownItem>Activity</a>
+            <a routerLink="./logout" ngbDropdownItem>Logout</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</nav>

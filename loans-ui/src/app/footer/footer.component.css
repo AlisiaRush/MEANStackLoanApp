@@ -1,0 +1,15 @@
+.container-footer{
+  padding:10px;
+  color:#fff;
+}
+
+.footer-links li{
+list-style:none;
+display:inline;
+}
+
+.footer-links a{
+  text-decoration:none;
+  margin-left:10px;
+  color:#fff;
+}

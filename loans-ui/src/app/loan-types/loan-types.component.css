@@ -1,0 +1,10 @@
+.status-box{
+  background:#fff;
+  border:1px solid#b9b8b8;
+}
+span{
+  display:inline-block;
+  padding: 10px 15px;
+  color:#7f7c7c;
+}
+

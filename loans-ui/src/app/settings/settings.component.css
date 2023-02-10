@@ -1,0 +1,9 @@
+.status-box{
+  background:#fff;
+  border:1px solid#b9b8b8;
+  padding:15px;
+}
+
+.status-box span{
+  font-size:30px;
+}
