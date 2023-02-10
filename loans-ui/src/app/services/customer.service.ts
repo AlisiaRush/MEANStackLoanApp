@@ -16,12 +16,6 @@ export class CustomerService {
     return this.http.get(url);
   }
 
-  // viewCustomers(id: string) {
-  //   let url =
-  //     environment.CUSTOMER_BASE_URL+environment.CUSTOMER.GET_CUSTOMER;
-  //   return this.http.get(url);
-  // }
-
   viewCustomers(id: string) {
     let url =
       environment.CUSTOMER_BASE_URL+environment.CUSTOMER.GET_CUSTOMER+`?userId=${id}`;
