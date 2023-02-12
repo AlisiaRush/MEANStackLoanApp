@@ -21,4 +21,6 @@ export class ListCustomersComponent implements OnInit {
       this.customerList = this.customerResult.results;
     });
   }
+
+  onSubmit() {}
 }

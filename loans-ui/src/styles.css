@@ -61,4 +61,12 @@ main{
   }
   .nav-container{height:100%;}
 
+  .status-box{
+    background:#fff;
+    border:1px solid#b9b8b8;
+    padding:15px;
+  }
+
+
+
 
