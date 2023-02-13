@@ -1,5 +1,6 @@
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { catchError, map, Observable, throwError } from 'rxjs';
 import { environment } from '../../environments/environment.dev';
 
 @Injectable({
@@ -18,6 +19,17 @@ export class CustomerService {
   customerAdd =
     environment.CUSTOMER_BASE_URL + environment.CUSTOMER.ADD_CUSTOMER;
 
+  // Error Handling
+  /**
+   * Handles errors sent back from the API.
+   *
+   * @param error HTTP error response
+   * @returns observable with the response object returned from the server
+   */
+  private handleError(error: HttpErrorResponse): Observable<any> {
+    return throwError(error);
+  }
+
   // METHODS to communicate with backend APIS
 
   getCustomers() {
@@ -32,8 +44,29 @@ export class CustomerService {
     return this.http.put(this.customerUpdate + `?userId=${id}`, customerObj);
   }
 
-  addCustomer() {
-    return this.http.post(this.customerAdd, {});
+  // addCustomer(customerObj: any) {
+  //   return this.http.post(this.customerAdd, {});
+  // }
+
+  // addCustomer(customerObj: any) {
+  //   return this.http.post(this.customerAdd, { customerObj }).pipe(
+  //     catchError((err) => this.handleError(err)),
+  //     map((response) => response.body)
+  //   );
+  // }
+
+  addCustomer(customer: {
+    _id: string;
+    firstName: string;
+    lastName: string;
+    emailAddress: string;
+    phoneNumber: string;
+    dob: Date;
+    department: string;
+  }) {
+    this.http.post(this.customerAdd, customer).subscribe((res) => {
+      console.log(res);
+    });
   }
 
   deleteCustomers(id: string) {}
