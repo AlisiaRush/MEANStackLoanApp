@@ -12,12 +12,14 @@ export class CustomerService {
   // VARIABLEs to communicate with backend APIS
   customersUrl =
     environment.CUSTOMER_BASE_URL + environment.CUSTOMER.GET_ALL_CUSTOMERS;
-  customerDetails =
+  customerDetailsUrl =
     environment.CUSTOMER_BASE_URL + environment.CUSTOMER.GET_CUSTOMER;
-  customerUpdate =
+  customerUpdateUrl =
     environment.CUSTOMER_BASE_URL + environment.CUSTOMER.UPDATE_CUSTOMER;
-  customerAdd =
+  customerAddUrl =
     environment.CUSTOMER_BASE_URL + environment.CUSTOMER.ADD_CUSTOMER;
+  customerDeleteUrl =
+    environment.CUSTOMER_BASE_URL + environment.CUSTOMER.DELETE_CUSTOMER;
 
   // Error Handling
   /**
@@ -37,23 +39,12 @@ export class CustomerService {
   }
 
   getCustomerDetails(id: string) {
-    return this.http.get(this.customerDetails + `?userId=${id}`);
+    return this.http.get(this.customerDetailsUrl + `?userId=${id}`);
   }
 
   updateCustomer(id: string, customerObj: any) {
-    return this.http.put(this.customerUpdate + `?userId=${id}`, customerObj);
+    return this.http.put(this.customerUpdateUrl + `?userId=${id}`, customerObj);
   }
-
-  // addCustomer(customerObj: any) {
-  //   return this.http.post(this.customerAdd, {});
-  // }
-
-  // addCustomer(customerObj: any) {
-  //   return this.http.post(this.customerAdd, { customerObj }).pipe(
-  //     catchError((err) => this.handleError(err)),
-  //     map((response) => response.body)
-  //   );
-  // }
 
   addCustomer(customer: {
     _id: string;
@@ -64,12 +55,19 @@ export class CustomerService {
     dob: Date;
     department: string;
   }) {
-    this.http.post(this.customerAdd, customer).subscribe((res) => {
+    this.http.post(this.customerAddUrl, customer).subscribe((res) => {
       console.log(res);
     });
   }
 
-  deleteCustomers(id: string) {}
+  deleteCustomer(id: string) {
+    console.log("HEY... I'm the service!!!");
+    return this.http
+      .delete(this.customerDeleteUrl + `?userId=${id}`)
+      .subscribe((res) => {
+        console.log('The results are...', res);
+      });
+  }
 
   searchCustomer(keyword: any) {}
 }

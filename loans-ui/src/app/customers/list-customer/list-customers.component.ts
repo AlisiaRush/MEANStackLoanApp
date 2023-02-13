@@ -14,6 +14,7 @@ export class ListCustomersComponent implements OnInit {
 
   customerResult: any;
   customerList: any;
+
   ngOnInit() {
     this.addNewCustomerForm = new FormGroup({
       _id: new FormControl(),
@@ -35,17 +36,21 @@ export class ListCustomersComponent implements OnInit {
     });
   }
 
-  onSubmit() {
+  addCustomer() {
     const options = {
       _id: this.addNewCustomerForm.get('_id')?.value,
       firstName: this.addNewCustomerForm.get('firstName')?.value,
       lastName: this.addNewCustomerForm.get('lastName')?.value,
-      emailAddress: this.addNewCustomerForm.get('lastName')?.value,
-      phoneNumber: this.addNewCustomerForm.get('lastName')?.value,
-      dob: this.addNewCustomerForm.get('lastName')?.value,
-      department: this.addNewCustomerForm.get('lastName')?.value,
+      emailAddress: this.addNewCustomerForm.get('emailAddress')?.value,
+      phoneNumber: this.addNewCustomerForm.get('phoneNumber')?.value,
+      dob: this.addNewCustomerForm.get('dob')?.value,
+      department: this.addNewCustomerForm.get('department')?.value,
     };
     this.customerService.addCustomer(options);
     console.log(this.addNewCustomerForm.value);
+  }
+
+  deleteCustomer(id: string) {
+    this.customerService.deleteCustomer(id);
   }
 }
