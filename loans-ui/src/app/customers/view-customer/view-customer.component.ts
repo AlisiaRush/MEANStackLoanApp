@@ -24,9 +24,11 @@ export class ViewCustomerComponent implements OnInit, OnDestroy {
     });
 
     if (this.customerId) {
-      this.customerService.getCustomers().subscribe((data: any) => {
-        this.customerDetails = data['results'];
-      });
+      this.customerService
+        .getCustomerDetails(this.customerId)
+        .subscribe((data: any) => {
+          this.customerDetails = data['results'];
+        });
     }
   }
 
