@@ -9,6 +9,7 @@ import { EditCustomerComponent } from './edit-customer/edit-customer.component';
 import { DeleteCustomerComponent } from './delete-customer/delete-customer.component';
 import { SearchCustomerComponent } from './search-customer/search-customer.component';
 import { ViewCustomerComponent } from './view-customer/view-customer.component';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -20,6 +21,11 @@ import { ViewCustomerComponent } from './view-customer/view-customer.component';
     SearchCustomerComponent,
     ViewCustomerComponent,
   ],
-  imports: [CommonModule, CustomersRoutingModule],
+  imports: [
+    CommonModule,
+    CustomersRoutingModule,
+    FormsModule,
+    ReactiveFormsModule,
+  ],
 })
 export class CustomersModule {}

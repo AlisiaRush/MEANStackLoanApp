@@ -5,6 +5,7 @@ export const environment = {
   CUSTOMER: {
     GET_ALL_CUSTOMERS: 'list',
     GET_CUSTOMER: 'view',
+    ADD_CUSTOMER: 'add',
     UPDATE_CUSTOMER: 'update',
     DELETE_CUSTOMER: 'delete',
     SEARCH_CUSTOMER: 'search',

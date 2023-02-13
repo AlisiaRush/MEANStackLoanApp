@@ -8,21 +8,33 @@ import { environment } from '../../environments/environment.dev';
 export class CustomerService {
   constructor(private http: HttpClient) {}
 
+  // VARIABLEs to communicate with backend APIS
+  customersUrl =
+    environment.CUSTOMER_BASE_URL + environment.CUSTOMER.GET_ALL_CUSTOMERS;
+  customerDetails =
+    environment.CUSTOMER_BASE_URL + environment.CUSTOMER.GET_CUSTOMER;
+  customerUpdate =
+    environment.CUSTOMER_BASE_URL + environment.CUSTOMER.UPDATE_CUSTOMER;
+  customerAdd =
+    environment.CUSTOMER_BASE_URL + environment.CUSTOMER.ADD_CUSTOMER;
+
   // METHODS to communicate with backend APIS
 
   getCustomers() {
-    let url =
-      environment.CUSTOMER_BASE_URL+environment.CUSTOMER.GET_ALL_CUSTOMERS;
-    return this.http.get(url);
+    return this.http.get(this.customersUrl);
   }
 
-  viewCustomers(id: string) {
-    let url =
-      environment.CUSTOMER_BASE_URL+environment.CUSTOMER.GET_CUSTOMER+`?userId=${id}`;
-    return this.http.get(url);
+  getCustomerDetails(id: string) {
+    return this.http.get(this.customerDetails + `?userId=${id}`);
   }
 
-  editCustomers(id: string, customerObj: any) {}
+  updateCustomer(id: string, customerObj: any) {
+    return this.http.put(this.customerUpdate + `?userId=${id}`, customerObj);
+  }
+
+  addCustomer() {
+    return this.http.post(this.customerAdd, {});
+  }
 
   deleteCustomers(id: string) {}
 

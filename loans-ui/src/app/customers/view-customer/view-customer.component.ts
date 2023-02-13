@@ -1,7 +1,7 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { CustomerService } from 'src/app/services/customer.service';
-import {Subscription}  from "rxjs";
+import { Subscription } from 'rxjs';
 
 @Component({
   selector: 'app-view-customer',
@@ -23,10 +23,8 @@ export class ViewCustomerComponent implements OnInit, OnDestroy {
       this.customerId = data.id;
     });
 
-    if(this.customerId){
-      this.customerService
-      .viewCustomers(this.customerId)
-      .subscribe((data: any) => {
+    if (this.customerId) {
+      this.customerService.getCustomers().subscribe((data: any) => {
         this.customerDetails = data['results'];
       });
     }
